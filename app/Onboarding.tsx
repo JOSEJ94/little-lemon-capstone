@@ -1,9 +1,10 @@
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React, { useMemo, useState } from "react";
 import { isEmailValid as validateEmail } from "@/utils/validator";
 import Button from "@/components/Button";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ONBOARDING_COMPLETED_STORAGE_KEY } from "@/constants/Keys";
+import TextInput from "@/components/TextInput";
 
 const Onboarding = () => {
   const styles = useMemo(() => createStyles(), []);
@@ -24,14 +25,14 @@ const Onboarding = () => {
         placeholder="First Name"
         value={firstName}
         onChangeText={setFirstName}
-        style={styles.input}
+        containerStyle={styles.input}
       />
       <TextInput
         keyboardType="email-address"
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
-        style={styles.input}
+        containerStyle={styles.input}
       />
       <Button
         style={styles.button}
@@ -56,12 +57,7 @@ const createStyles = () =>
       fontFamily: "Karla",
     },
     input: {
-      borderWidth: 1,
-      borderColor: "gray",
-      borderRadius: 20,
-      padding: 6,
       marginHorizontal: 24,
-      marginVertical: 4,
     },
     button: {
       alignSelf: "center",
