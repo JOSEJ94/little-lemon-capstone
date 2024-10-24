@@ -1,1 +1,10 @@
 export const ONBOARDING_COMPLETED_STORAGE_KEY = "OnboardingCompleted";
+export const FIRST_NAME_STORAGE_KEY = "FirstName";
+export const LAST_NAME_STORAGE_KEY = "lastName";
+export const EMAIL_STORAGE_KEY = "email";
+export const PHONE_NUMBER_STORAGE_KEY = "phoneNumber";
+export const ORDER_STATUSES_STORAGE_KEY = "orderStatuses";
+export const PASSWORD_CHANGES_STORAGE_KEY = "passwordChanges";
+export const SPECIAL_OFFERS_STORAGE_KEY = "specialOffers";
+export const NEWSLETTERS_STORAGE_KEY = "newsletters";
+export const PROFILE_IMG_STORAGE_KEY = "profileImage";

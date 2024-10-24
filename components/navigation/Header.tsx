@@ -30,8 +30,10 @@ const createStyles = (insets: EdgeInsets) =>
       width: LOGO_SIZE,
     },
     name: {
-      fontSize: 24,
+      fontSize: 18,
+      color: "green",
       fontFamily: "Karla",
+      textTransform: "uppercase",
     },
   });
 

@@ -3,10 +3,16 @@ import React, { useMemo, useState } from "react";
 import { isEmailValid as validateEmail } from "@/utils/validator";
 import Button from "@/components/Button";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { ONBOARDING_COMPLETED_STORAGE_KEY } from "@/constants/Keys";
+import {
+  EMAIL_STORAGE_KEY,
+  FIRST_NAME_STORAGE_KEY,
+  ONBOARDING_COMPLETED_STORAGE_KEY,
+} from "@/constants/Keys";
 import TextInput from "@/components/TextInput";
+import { useRouter } from "expo-router";
 
 const Onboarding = () => {
+  const router = useRouter();
   const styles = useMemo(() => createStyles(), []);
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
@@ -15,7 +21,14 @@ const Onboarding = () => {
   const isFormValid = isEmailValid && isFirstNameValid;
 
   const goToNextScreen = async () => {
-    await AsyncStorage.setItem(ONBOARDING_COMPLETED_STORAGE_KEY, "true");
+    try {
+      await AsyncStorage.setItem(ONBOARDING_COMPLETED_STORAGE_KEY, "true");
+      await AsyncStorage.setItem(FIRST_NAME_STORAGE_KEY, firstName);
+      await AsyncStorage.setItem(EMAIL_STORAGE_KEY, email);
+      router.navigate("/Profile");
+    } catch (error) {
+      console.error("There was an error while trying to save the information");
+    }
   };
 
   return (
@@ -58,6 +71,7 @@ const createStyles = () =>
     },
     input: {
       marginHorizontal: 24,
+      marginVertical: 12,
     },
     button: {
       alignSelf: "center",
