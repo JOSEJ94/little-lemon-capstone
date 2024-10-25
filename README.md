@@ -1,50 +1,73 @@
-# Welcome to your Expo app 👋
+# Final Project - Meta React Native Developer Certificate
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Overview
 
-## Get started
+This project is the culmination of the skills acquired throughout the Meta React Native Developer Certificate on Coursera. It showcases a comprehensive application built using **React Native**, **Expo**, and other modern mobile development technologies. The goal is to create an engaging, user-friendly mobile experience with real-world functionality and performance.
 
-1. Install dependencies
+## Features
+
+- **Responsive Design**: Ensures seamless experience on both iOS and Android devices.
+- **Navigation**: Smooth and intuitive multi-page navigation with animations.
+- **Custom Components**: Reusable components designed to streamline development and maintain a clean codebase.
+- **API Integration**: Real-time data fetching and rendering.
+
+## Getting Started
+
+### Prerequisites
+
+To run this project locally, ensure you have the following installed:
+
+- Node.js
+- Expo CLI
+- React Native CLI
+
+### Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/JOSEJ94/little-lemon-capstone.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd litle-lemon-capstone
+   ```
+3. Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
-
+4. Start the Expo server:
    ```bash
-    npx expo start
+   expo start
    ```
 
-In the output, you'll find options to open the app in a
+### Usage
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Open the Expo app on your mobile device and scan the QR code from the Expo server to launch the application.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Project Structure
 
-## Get a fresh project
+- **/assets**: Holds images, fonts, and other static resources.
+- **/components**: Reusable components used throughout the app.
+- **/app**: Main screens representing different views in the app.
 
-When you're ready, run:
+## Future Improvements
 
-```bash
-npm run reset-project
-```
+- Adding additional authentication options.
+- Enhancing performance with lazy loading and optimizations.
+- Expanding test coverage for UI and functionality.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Acknowledgments
 
-## Learn more
+Special thanks to Meta and Coursera for this opportunity to learn and grow in mobile development.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Low Fidelity Wireframe
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+![Project Banner](./documents/figma-wireframe.png)
 
-## Join the community
+### Actual Screenshots
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+![Project Banner](./documents/home-screenshot.png)
+![Project Banner](./documents/profile-screenshot.png)
+![Project Banner](./documents/onboarding-screenshot.png)
