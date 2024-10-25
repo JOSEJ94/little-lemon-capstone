@@ -15,5 +15,5 @@ export default function Index() {
   }, [loading]);
 
   if (loading) return null;
-  return <Redirect href={onboardingCompleted ? "/Profile" : "/Onboarding"} />;
+  return <Redirect href={onboardingCompleted ? "/Home" : "/Onboarding"} />;
 }

@@ -1,13 +1,10 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import React, { useMemo } from "react";
-import { EdgeInsets, useSafeAreaInsets } from "react-native-safe-area-context";
-import {} from "expo-router";
 
 const LOGO_SIZE = 40;
 
 const Header = (props: any) => {
-  const insets = useSafeAreaInsets();
-  const styles = useMemo(() => createStyles(insets), [insets]);
+  const styles = useMemo(() => createStyles(), []);
 
   return (
     <View style={styles.container}>
@@ -17,13 +14,11 @@ const Header = (props: any) => {
   );
 };
 
-const createStyles = (insets: EdgeInsets) =>
+const createStyles = () =>
   StyleSheet.create({
     container: {
-      flexDirection: "row",
-      paddingTop: insets.top,
-      justifyContent: "center",
       alignItems: "center",
+      flexDirection: "row",
     },
     logo: {
       height: LOGO_SIZE,

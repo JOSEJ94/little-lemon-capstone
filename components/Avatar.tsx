@@ -1,53 +1,61 @@
 import {
   Image,
+  Pressable,
+  PressableProps,
   StyleProp,
   StyleSheet,
   Text,
-  View,
   ViewStyle,
 } from "react-native";
 import React, { useMemo } from "react";
 import { AppColors } from "@/constants/Colors";
 
-interface AvatarProps {
+interface AvatarProps extends PressableProps {
   name: string;
   imageUri?: string;
+  size?: number;
   containerStyle?: StyleProp<ViewStyle>;
 }
 
-const Avatar = ({ name, imageUri, containerStyle }: AvatarProps) => {
-  const styles = useMemo(() => createStyles(), []);
+const Avatar = ({
+  name,
+  imageUri,
+  size,
+  containerStyle,
+  ...rest
+}: AvatarProps) => {
+  const styles = useMemo(() => createStyles(size), [size]);
   return (
-    <View style={[styles.container, containerStyle]}>
+    <Pressable style={[styles.container, containerStyle]} {...rest}>
       {imageUri ? (
         <Image source={{ uri: imageUri }} style={styles.avatarImage} />
       ) : (
         <Text style={styles.avatarLabel}>{name}</Text>
       )}
-    </View>
+    </Pressable>
   );
 };
 
 export default Avatar;
 
-const createStyles = () =>
+const createStyles = (size = 60) =>
   StyleSheet.create({
     container: {
       alignSelf: "flex-start",
       justifyContent: "center",
       alignItems: "center",
-      width: 60,
-      height: 60,
-      borderRadius: 30,
+      width: size,
+      height: size,
+      borderRadius: size / 2,
       backgroundColor: AppColors.secondary1,
     },
     avatarImage: {
-      width: 60,
-      height: 60,
-      borderRadius: 30,
+      width: size,
+      height: size,
+      borderRadius: size / 2,
     },
     avatarLabel: {
-      fontSize: 36,
+      fontSize: size / 2,
       fontFamily: "Karla",
       color: "white",
     },

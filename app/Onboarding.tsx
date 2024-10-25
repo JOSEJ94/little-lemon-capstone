@@ -25,7 +25,7 @@ const Onboarding = () => {
       await AsyncStorage.setItem(ONBOARDING_COMPLETED_STORAGE_KEY, "true");
       await AsyncStorage.setItem(FIRST_NAME_STORAGE_KEY, firstName);
       await AsyncStorage.setItem(EMAIL_STORAGE_KEY, email);
-      router.navigate("/Profile");
+      router.navigate("/Home");
     } catch (error) {
       console.error("There was an error while trying to save the information");
     }
