@@ -16,9 +16,9 @@ import TextInput from "@/components/TextInput";
 
 const Home = () => {
   const styles = useMemo(() => createStyles(), []);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [searchTerm, setsearchTerm] = useState("");
-  const { menuItems, loading } = useMenuItems(searchTerm, selectedCategory);
+  const { menuItems, loading } = useMenuItems(searchTerm, selectedCategories);
 
   const header = (
     <View style={styles.headerContainer}>
@@ -48,10 +48,19 @@ const Home = () => {
 
   const categories = () => {
     const renderCategoryItem = (info: ListRenderItemInfo<string>) => {
-      const isSelected = selectedCategory === info.item;
+      const selectedItem = selectedCategories.find(
+        (item) => item === info.item
+      );
+      const isSelected = Boolean(selectedItem);
 
       const selectCategory = () => {
-        setSelectedCategory(info.item);
+        if (isSelected) {
+          setSelectedCategories(
+            selectedCategories.filter((item) => item !== selectedItem)
+          );
+        } else {
+          setSelectedCategories([...selectedCategories, info.item]);
+        }
       };
       return (
         <Pill name={info.item} selected={isSelected} onPress={selectCategory} />
@@ -63,7 +72,7 @@ const Home = () => {
         <Text style={styles.categoriesTitle}>Order for delivery!</Text>
         <FlatList
           horizontal
-          data={["Starters", "Mains", "Desserts", "Drinks"]}
+          data={["Starters", "Mains", "Desserts", "Drinks", "Specials"]}
           showsHorizontalScrollIndicator={false}
           renderItem={renderCategoryItem}
           contentContainerStyle={styles.categoriesContentContainer}

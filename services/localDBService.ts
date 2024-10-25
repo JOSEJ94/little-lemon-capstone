@@ -32,7 +32,25 @@ export const saveMenuItems = async (items: MenuItem[]) => {
 
 export const getMenuItems = async () => {
   try {
-    return await (await db).getAllAsync<MenuItem>(`select * from menuitems;`);
+    return await (await db).getAllAsync<MenuItem>(`SELECT * FROM menuitems;`);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const searchMenuItems = async (
+  searchTerm: string,
+  categories: string[]
+) => {
+  try {
+    const query = `SELECT * FROM menuitems WHERE name LIKE '%${searchTerm}%' ${
+      categories?.length
+        ? `AND category IN (${categories
+            .map((cat) => `"${cat.toLowerCase()}"`)
+            .join(", ")})`
+        : ""
+    };`;
+    return await (await db).getAllAsync<MenuItem>(query);
   } catch (error) {
     console.error(error);
   }
